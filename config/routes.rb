@@ -1,13 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'group_entities/new'
-  get 'group_entities/create'
-  get 'groups/new'
-  get 'groups/create'
-  get 'entities/new'
-  get 'entities/create'
-  get 'users/new'
+  get 'group/show', to: "groups#show", as: "groups_show"
+  get 'group/:id/show', to: "entities#show", as: "entities_show"
   devise_for :users
   root to: 'index#index'
 end

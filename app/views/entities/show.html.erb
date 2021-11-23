@@ -1,25 +1,25 @@
-<% provide(:title, "Categories") %>
+<% provide(:title, "Transactions") %>
 <div class='card'>
   <div class="border border-light shadow-sm">
-      <p class="text-muted fs-5 py-3 ps-4">Categories:</p>
+      <p class="text-muted fs-5 py-3 ps-4">Category <%= @group.name %>:</p>
   </div>
-  <% @groups.each do |group|%>  
-      <% if group.user_id == @user %>
+  <% @group.group_entities.each do |entity|%>
+      <% if @group.user_id == @user %>
         <div class="card-body container">
           <div class="card mb-3 justify-content-center shadow rounded-3">
             <div class="row g-0">
               <div class="col-3">
-                <img src=<%= group.icon %> class="img-fluid rounded-start p-4" alt="...">
+                <img src="<%= @group.icon %>" class="img-fluid rounded-start p-4" alt="...">
               </div>
               <div class="col-6 d-flex align-items-center">
                 <div class="card-body ">
-                  <%= link_to group.name, entities_show_path(user_id: @user, id: group.id), class: 'card-title text-secondary fs-4' %>
-                  <p class="card-text mt-4 text-black-50"><%= group.created_at.strftime("%d %b %Y") %></p>
+                  <h5 class="card-title text-secondary"><%= @entities[entity.id-1].name %></h5>
+                  <p class="card-text mt-4 text-black-50"><%= @entities[entity.id-1].created_at.strftime("%d %b %Y") %></p>
                 </div>
               </div>
               <div class="col-3 d-flex align-items-center">
                 <div class="card-body">
-                  <p class="card-text"><small class="fs-5 p-3">$<%= GroupEntity.where("group_id = #{group.id}").joins(:entity).sum("amount") %></small></p>
+                  <p class="card-text"><small class="fs-5 p-3">$<%= @entities[entity.id-1].amount %></small></p>
                 </div>
               </div>
             </div>
@@ -29,6 +29,5 @@
   <% end %>
 </div>
 <div class="bg-success d-flex justify-content-center">
-  <%# <%= button_to "Add New Category", recipes_new_path(), method: :get, class: 'btn btn-success px-4 py-2 m-4 border-white border-2 rounded-3 fs-3' %>
   <button type="button" class="btn btn-success px-4 py-2 m-4 border-white border-2 rounded-3 fs-3">Add New Category</button>
 </div>
