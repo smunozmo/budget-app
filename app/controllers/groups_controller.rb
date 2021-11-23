@@ -21,4 +21,12 @@ class GroupsController < ApplicationController
       render :new
     end
   end
+
+  private
+
+  def entity_params
+    params.require(:entity).permit(group_ids: [])
+    params.require(:entity).permit(group_names: [])
+  end
+
 end
