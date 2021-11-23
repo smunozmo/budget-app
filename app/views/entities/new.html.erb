@@ -4,12 +4,12 @@
       <%= f.label :name, class: 'recipe_new_title_label' %>
       <%= f.text_field :name, :required => true, class: 'recipe_new_title_input' %>
       <%= f.label :amount, class: 'recipe_new_title_label' %>
-      <%= f.text_field :amount, :required => true, class: 'recipe_new_title_input' %>
+      <%= f.number_field :amount, :required => true, class: 'recipe_new_title_input' %>
       <%= f.label :categories %><br />
-      <% for group in Group.all %>
+      <% for group in @group %>
         <%= check_box_tag "entity[group_ids][]", group.id, @entity.groups.include?(group) %>
         <%= f.label group.name %><br />
       <% end %>
-      <%= f.submit "Add Category", class: 'recipe_new_submit_btn' %>
+      <%= f.submit "Add Transaction", class: 'recipe_new_submit_btn' %>
   <% end %>
 </section>
