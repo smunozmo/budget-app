@@ -13,13 +13,13 @@
               </div>
               <div class="col-6 d-flex align-items-center">
                 <div class="card-body ">
-                  <h5 class="card-title text-secondary"><%= @entities[entity.id-1].name %></h5>
-                  <p class="card-text mt-4 text-black-50"><%= @entities[entity.id-1].created_at.strftime("%d %b %Y") %></p>
+                  <h5 class="card-title text-secondary"><%= Entity.find(entity.entity_id).name %></h5>
+                  <p class="card-text mt-4 text-black-50"><%= Entity.find(entity.entity_id).created_at.strftime("%d %b %Y") %></p>
                 </div>
               </div>
               <div class="col-3 d-flex align-items-center">
                 <div class="card-body">
-                  <p class="card-text"><small class="fs-5 p-3">$<%= @entities[entity.id-1].amount %></small></p>
+                  <p class="card-text"><small class="fs-5 p-3">$<%= Entity.find(entity.entity_id).amount %></small></p> 
                 </div>
               </div>
             </div>
