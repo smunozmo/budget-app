@@ -3,6 +3,9 @@
   <div class="border border-light shadow-sm">
       <p class="text-muted fs-5 py-3 ps-4">All Categories:</p>
   </div>
+  <% if @groups.empty? %>
+      <p class="text-muted fs-5 py-3 ps-4">Add your first category to start.</p>
+  <% end %>
   <% @groups.each do |group|%>  
       <% if group.user_id == @user %>
         <div class="card-body container">
