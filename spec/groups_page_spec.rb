@@ -2,14 +2,12 @@ require 'rails_helper'
 
 RSpec.describe 'In categories page', js: true, type: :system do
   before(:all) do
-    user1 = User.create({ name: 'Foo', email: 'user1@mail.com', password: '111111'})
-    group1 = Group.create({name: 'Transport', icon: 'https://lorempixel.com/100/100/transport/', user_id: user1.id})
-    entity1 = Entity.create({name: '001 Transaction', amount: 10, user_id: user1.id})
-    group_entity1 = GroupEntity.create({entity_id: entity1.id, group_id: group1.id})
+    user1 = User.create({ name: 'Foo', email: 'user1@mail.com', password: '111111' })
+    Group.create({ name: 'Transport', icon: 'https://lorempixel.com/100/100/transport/', user_id: user1.id })
+    Entity.create({ name: '001 Transaction', amount: 10, user_id: user1.id })
   end
 
   describe 'I can see' do
-
     it 'the Add new category button' do
       visit new_user_session_path
       fill_in 'user_email', with: 'user1@mail.com'

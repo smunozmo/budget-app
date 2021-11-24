@@ -3,7 +3,7 @@ class GroupsController < ApplicationController
     @groups = Group.where(user_id: current_user.id)
     @user = current_user.id
   end
-  
+
   def new
     @group = Group.new
     @user = current_user.id
@@ -28,5 +28,4 @@ class GroupsController < ApplicationController
   def entity_params
     params.require(:entity).permit(group_ids: [])
   end
-
 end
