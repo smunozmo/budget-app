@@ -1,12 +1,12 @@
 <% provide(:title, "Categories") %>
 <div class='card'>
   <div class="border border-light shadow-sm">
-      <p class="text-muted fs-5 py-3 ps-4">Categories:</p>
+      <p class="text-muted fs-5 py-3 ps-4">All Categories:</p>
   </div>
   <% @groups.each do |group|%>  
       <% if group.user_id == @user %>
         <div class="card-body container">
-          <div class="card mb-3 justify-content-center shadow rounded-3">
+          <div class="card justify-content-center shadow rounded-3">
             <div class="row g-0">
               <div class="col-3">
                 <img src=<%= group.icon %> class="img-fluid rounded-start p-4" alt="...">
