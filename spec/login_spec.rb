@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Login page', js: true, type: :system do
   before(:all) do
-    User.create({ name: 'Foo', email: 'user1@mail.com', password: '111111', confirmed_at: '2021-01-01' })
+    User.create({ name: 'Foo', email: 'user1@mail.com', password: '111111' })
   end
 
   describe 'contains' do

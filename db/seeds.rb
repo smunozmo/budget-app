@@ -7,8 +7,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user1 = User.create({ name: 'Foo', email: 'user1@mail.com', password: '111111', confirmed_at: '2021-01-01' })
-user2 = User.create({ name: 'Bar', email: 'user2@mail.com', password: '111111', confirmed_at: '2021-01-01' })
+user1 = User.create({ name: 'Foo', email: 'user1@mail.com', password: '111111'})
+user2 = User.create({ name: 'Bar', email: 'user2@mail.com', password: '111111'})
 group1 = Group.create({name: 'Transportation', icon: 'https://lorempixel.com/100/100/transport/', user_id: user1.id})
 group2 = Group.create({name: 'Food', icon: 'https://lorempixel.com/100/100/food/', user_id: user1.id})
 group3 = Group.create({name: 'Entertainment', icon: 'https://lorempixel.com/100/100/nightlife/', user_id: user1.id})

@@ -3,7 +3,7 @@ class GroupsController < ApplicationController
     @groups = Group.where(user_id: current_user.id)
     @user = current_user.id
   end
-  
+
   def new
     @group = Group.new
     @user = current_user.id
@@ -16,8 +16,9 @@ class GroupsController < ApplicationController
     @group.user_id = params[:user_id]
     if @group.save
       redirect_to groups_show_url
+      flash[:alert] = 'Success!'
     else
-      flash.now[:error] = 'Error'
+      flash[:alert] = 'Error'
       render :new
     end
   end
@@ -27,5 +28,4 @@ class GroupsController < ApplicationController
   def entity_params
     params.require(:entity).permit(group_ids: [])
   end
-
 end
