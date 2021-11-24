@@ -5,7 +5,7 @@
         <p class="text-muted fs-5 py-3 ps-4">Category <%= @group.name %>:</p>
     </div>
     <div class="col-3">
-        <p class="card-text py-3"><small class="fs-5 p-3">$<%= GroupEntity.where("group_id = #{@group.id}").joins(:entity).sum("amount")%></small></p> 
+        <p class="card-text py-3"><small class="fs-5 p-3">$<%= entities_total(@group) %></small></p> 
     </div>
   </div>
   <% if @group.group_entities.empty? %>
@@ -21,13 +21,13 @@
               </div>
               <div class="col-6 d-flex align-items-center">
                 <div class="card-body ">
-                  <h5 class="card-title text-secondary"><%= Entity.find(entity.entity_id).name %></h5>
-                  <p class="card-text mt-4 text-black-50"><%= Entity.find(entity.entity_id).created_at.strftime("%d %b %Y") %></p>
+                  <h5 class="card-title text-secondary"><%= entity_name(entity) %></h5>
+                  <p class="card-text mt-4 text-black-50"><%= entity_created_at(entity) %></p>
                 </div>
               </div>
               <div class="col-3 d-flex align-items-center">
                 <div class="card-body">
-                  <p class="card-text"><small class="fs-5 p-3">$<%= Entity.find(entity.entity_id).amount %></small></p> 
+                  <p class="card-text"><small class="fs-5 p-3">$<%= entity_amount(entity) %></small></p> 
                 </div>
               </div>
             </div>
