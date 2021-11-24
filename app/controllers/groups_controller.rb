@@ -16,8 +16,9 @@ class GroupsController < ApplicationController
     @group.user_id = params[:user_id]
     if @group.save
       redirect_to groups_show_url
+      flash[:alert] = 'Success!'
     else
-      flash.now[:error] = 'Error'
+      flash[:alert] = 'Error'
       render :new
     end
   end
