@@ -3,8 +3,11 @@
   <div class="border border-light shadow-sm">
       <p class="text-muted fs-5 py-3 ps-4">Category <%= @group.name %>:</p>
   </div>
-  <% @group.group_entities.each do |entity|%>
-      <% if @group.user_id == @user %>
+  <% if @group.group_entities.empty? %>
+      <p class="text-muted fs-5 py-3 ps-4">No transactions found in this category.</p>
+  <% end %>
+  <% if @group.user_id == @user %>
+    <% @group.group_entities.each do |entity|%>
         <div class="card-body container">
           <div class="card mb-3 justify-content-center shadow rounded-3">
             <div class="row g-0">
