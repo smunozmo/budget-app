@@ -1,7 +1,12 @@
 <% provide(:title, "Transactions") %>
 <div class='card'>
-  <div class="border border-light shadow-sm">
-      <p class="text-muted fs-5 py-3 ps-4">Category <%= @group.name %>:</p>
+  <div class="row border border-light shadow-sm">
+    <div class="col-9">
+        <p class="text-muted fs-5 py-3 ps-4">Category <%= @group.name %>:</p>
+    </div>
+    <div class="col-3">
+        <p class="card-text py-3"><small class="fs-5 p-3">$<%= GroupEntity.where("group_id = #{@group.id}").joins(:entity).sum("amount")%></small></p> 
+    </div>
   </div>
   <% if @group.group_entities.empty? %>
       <p class="text-muted fs-5 py-3 ps-4">No transactions found in this category.</p>
