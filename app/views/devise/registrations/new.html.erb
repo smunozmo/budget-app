@@ -1,0 +1,30 @@
+<% provide(:title, "Register") %>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name, class: 'form')) do |f|%>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="mb-3">
+    <%= f.label :name, class: 'form-label pt-3' %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control"%>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :email, class: 'form-label' %>
+    <%= f.email_field :email, autocomplete: "email", class: "form-control"%>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :password, class: 'form-label' %>
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :password_confirmation, class: 'form-label' %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+  </div>
+  <div class="bg-success d-flex justify-content-center mb-3">
+    <%= f.submit "Sign up", class: "btn btn-success px-4 py-2 m-4 border-white border-2 rounded-3 fs-3" %>
+  </div>
+<% end %>
+<%= render "devise/shared/links" %>
+
